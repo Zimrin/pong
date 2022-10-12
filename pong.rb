@@ -131,7 +131,6 @@ player = Paddle.new(:left,5)
 opponent = Paddle.new(:right,4)
 ball = Ball.new(4)
 score = Score.new
-boom = Music.new('boom.mp3')
 
 on :key_down do |event|
   if event.key == 'w'
@@ -152,9 +151,7 @@ update do
   score.draw
   if player.hit_ball(ball) || opponent.hit_ball(ball)
     puts "HIT"
-    boom.play
     ball.bounce
-    boom.pause
   end
   player.movement
   player.draw
